@@ -1,0 +1,2 @@
+rootProject.name='MutableDataSource'
+include ':mutabledatasource'
