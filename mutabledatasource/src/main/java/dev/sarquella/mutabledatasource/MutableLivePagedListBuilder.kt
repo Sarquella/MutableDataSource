@@ -42,7 +42,7 @@ class MutableLivePagedListBuilder<Key, Value>(
      * @param initialLoadKey Initial load key passed to the first PagedList/DataSource.
      * @return this
      */
-    fun setInitialLoadKey(initialLoadKey: Key): MutableLivePagedListBuilder<Key, Value> {
+    fun setInitialLoadKey(initialLoadKey: Key?): MutableLivePagedListBuilder<Key, Value> {
         this.initialLoadKey = initialLoadKey
         return this
     }
@@ -54,7 +54,7 @@ class MutableLivePagedListBuilder<Key, Value>(
      * @param boundaryCallback The boundary callback for listening to PagedList load state.
      * @return this
      */
-    fun setBoundaryCallback(boundaryCallback: PagedList.BoundaryCallback<Value>):
+    fun setBoundaryCallback(boundaryCallback: PagedList.BoundaryCallback<Value>?):
             MutableLivePagedListBuilder<Key, Value> {
         this.boundaryCallback = boundaryCallback
         return this
@@ -76,15 +76,13 @@ class MutableLivePagedListBuilder<Key, Value>(
      *
      * @return The LiveData of PagedLists
      */
-    fun build(): LiveData<PagedList<Value>> {
-        val livePagedListBuilder = LivePagedListBuilder(
+    fun build(): LiveData<PagedList<Value>> =
+        LivePagedListBuilder(
                 mutableDataSourceFactory.build(MutableDataSource.Config(initialLoadKey)),
-                config)
+                config).apply {
+            setInitialLoadKey(initialLoadKey)
+            setBoundaryCallback(boundaryCallback)
+            fetchExecutor?.let { setFetchExecutor(it) }
+        }.build()
 
-        initialLoadKey?.let { livePagedListBuilder.setInitialLoadKey(it) }
-        boundaryCallback?.let { livePagedListBuilder.setBoundaryCallback(it) }
-        fetchExecutor?.let { livePagedListBuilder.setFetchExecutor(it) }
-
-        return livePagedListBuilder.build()
-    }
 }

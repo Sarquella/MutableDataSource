@@ -1,6 +1,9 @@
 package dev.sarquella.mutabledatasource
 
+import androidx.lifecycle.LiveData
 import androidx.paging.DataSource
+import androidx.paging.PagedList
+import java.util.concurrent.Executor
 
 
 /*
@@ -23,3 +26,25 @@ class MutableDataSource private constructor() {
     }
 
 }
+
+fun <Key, Value> MutableDataSource.Factory<Key, Value>.toLiveData(
+        config: PagedList.Config,
+        initialLoadKey: Key? = null,
+        boundaryCallback: PagedList.BoundaryCallback<Value>? = null,
+        fetchExecutor: Executor? = null): LiveData<PagedList<Value>> =
+    MutableLivePagedListBuilder(this, config).apply {
+        setInitialLoadKey(initialLoadKey)
+        setBoundaryCallback(boundaryCallback)
+        fetchExecutor?.let { setFetchExecutor(fetchExecutor) }
+    }.build()
+
+fun <Key, Value> MutableDataSource.Factory<Key, Value>.toLiveData(
+        pageSize: Int,
+        initialLoadKey: Key? = null,
+        boundaryCallback: PagedList.BoundaryCallback<Value>? = null,
+        fetchExecutor: Executor? = null): LiveData<PagedList<Value>> =
+    this.toLiveData(
+            androidx.paging.Config(pageSize),
+            initialLoadKey,
+            boundaryCallback,
+            fetchExecutor)
