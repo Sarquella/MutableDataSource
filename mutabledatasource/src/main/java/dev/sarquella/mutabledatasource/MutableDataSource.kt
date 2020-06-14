@@ -6,6 +6,8 @@ package dev.sarquella.mutabledatasource
  * adria@sarquella.dev
  */
 
+typealias MutateFunction<Original, Mutated> = (List<Original>) -> List<Mutated>
+
 class MutableDataSource private constructor() {
 
     class Config<Key> internal constructor(internal val initialKey: Key?) {
