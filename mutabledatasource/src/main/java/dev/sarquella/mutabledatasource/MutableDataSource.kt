@@ -27,6 +27,17 @@ class MutableDataSource private constructor() {
 
 }
 
+/**
+ * Constructs a [LiveData<PagedList>] from this [MutableDataSource.Factory].
+ * Convenience for [MutableLivePagedListBuilder].
+ *
+ * @param config Paging configuration.
+ * @param initialLoadKey Initial load key passed to the first PagedList/DataSource.
+ * @param boundaryCallback The boundary callback for listening to PagedList load state.
+ * @param fetchExecutor Executor for fetching data from DataSources.
+ *
+ * @return The LiveData of PagedList
+ */
 fun <Key, Value> MutableDataSource.Factory<Key, Value>.toLiveData(
         config: PagedList.Config,
         initialLoadKey: Key? = null,
@@ -38,6 +49,17 @@ fun <Key, Value> MutableDataSource.Factory<Key, Value>.toLiveData(
         fetchExecutor?.let { setFetchExecutor(fetchExecutor) }
     }.build()
 
+/**
+ * Constructs a [LiveData<PagedList>] from this [MutableDataSource.Factory].
+ * Convenience for [MutableLivePagedListBuilder].
+ *
+ * @param pageSize Page size.
+ * @param initialLoadKey Initial load key passed to the first PagedList/DataSource.
+ * @param boundaryCallback The boundary callback for listening to PagedList load state.
+ * @param fetchExecutor Executor for fetching data from DataSources.
+ *
+ * @return The LiveData of PagedList
+ */
 fun <Key, Value> MutableDataSource.Factory<Key, Value>.toLiveData(
         pageSize: Int,
         initialLoadKey: Key? = null,

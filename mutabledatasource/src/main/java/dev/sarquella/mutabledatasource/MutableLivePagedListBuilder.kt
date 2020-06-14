@@ -74,7 +74,7 @@ class MutableLivePagedListBuilder<Key, Value>(
     /**
      * Constructs the [LiveData<PagedList>].
      *
-     * @return The LiveData of PagedLists
+     * @return The LiveData of PagedList
      */
     fun build(): LiveData<PagedList<Value>> =
         LivePagedListBuilder(
