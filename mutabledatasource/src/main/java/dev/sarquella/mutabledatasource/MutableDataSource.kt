@@ -15,7 +15,7 @@ typealias FactoryBuilder<Key, Value> =
 
 class MutableDataSource private constructor() {
 
-    class Factory<Key, Value> internal constructor(private val build: FactoryBuilder<Key, Value>)
+    class Factory<Key, Value> internal constructor(internal val build: FactoryBuilder<Key, Value>)
 
     class Config<Key> internal constructor(internal val initialKey: Key?) {
         internal var alreadyLoaded: Int = 0
