@@ -1,0 +1,24 @@
+ext {
+    bintrayRepo = 'MutableDataSource'
+    bintrayName = 'dev.sarquella.mutabledatasource'
+
+    publishedGroupId = 'dev.sarquella.mutabledatasource'
+    artifact = 'mutabledatasource'
+
+    libraryVersion = '0.1.0'
+
+    libraryDescription = 'A wrapper around Android Paging Library\'s DataSources to ' +
+            'allow the free mutation of their resulting items.'
+
+    gitUrl = 'https://github.com/Sarquella/MutableDataSource'
+
+    developerId = 'sarquella'
+    developerName = 'Adrià Sarquella Farrés'
+    developerEmail = 'adria@sarquella.dev'
+
+    licenseId = 'Apache-2.0'
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+}
+
+apply from: 'https://raw.githubusercontent.com/Sarquella/JCenter-Uploader/master/jcenter_uploader.gradle'
