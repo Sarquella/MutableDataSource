@@ -1,3 +1,5 @@
+@file:JvmName("DataSourceTransformation")
+
 package dev.sarquella.mutabledatasource
 
 import androidx.paging.DataSource
@@ -22,6 +24,7 @@ import androidx.paging.PositionalDataSource
  * @param function Function that runs on each loaded page, returning mutated items.
  * @return
  */
+@JvmOverloads
 @Suppress("UNCHECKED_CAST")
 fun <Key, Original, Mutated> DataSource.Factory<Key, Original>.mutateByPage(
         totalCount: Int? = null,
