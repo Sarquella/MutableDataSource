@@ -20,7 +20,7 @@ dependencies {
 
 ## Usage
 
-1. Apply the mutating function
+**1- Apply the mutating function**
 
 **Java** ([Java 8+](https://developer.android.com/studio/write/java8-support) required)
 
@@ -42,7 +42,7 @@ val mutableDataSourceFactory = dataSourceFactory.mutateByPage { original ->
 > **Important** 
 > The mutating function is applied per page. You will need to be careful in cases such as adding items at every page without taking into account that the `original` list has already loaded all items (page is empty), as it could lead to a never ending list. 
 
-2. Build the LiveData PagedList
+**2- Build the LiveData PagedList**
 
 Generating the `LiveData<PagedList>` instance from the `MutableDataSource.Factory` is the same as with the regular `DataSource.Factory`. However, instead of using `LivePagedListBuilder` to do so, `MutableLivePagedListBuilder` should be used:
 
