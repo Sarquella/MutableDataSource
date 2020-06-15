@@ -56,6 +56,32 @@ Alternatively, the `toLiveData` extension function can also be used:
 val liveDataPagedList = mutableDataSourceFactory.toLiveData(pageSize)
 ```
 
+---
+
+**Placeholders [Optional]**
+
+In order to be able to use placeholders in the Paging Library, it should be capable of computing the total number of items even before loading all of them. When applying the mutation function, this total count might change due to modifying the number of items per page.
+
+In case the total number of items after mutating is already known, it can be specified when applying the mutating function to continue making use of the placeholders:
+
+**Java**
+
+```Java
+... = DataSourceTransformation.mutateByPage(dataSourceFactory, totalCount, original -> {
+	//Mutate
+});
+```
+
+**Kotlin**
+
+```kotlin
+... = dataSourceFactory.mutateByPage(totalCount) { original ->
+  //Mutate
+}
+
+```
+
+
 ## License
 [LICENSE](https://github.com/Sarquella/MutableDataSource/blob/master/LICENSE)
 
