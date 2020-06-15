@@ -26,6 +26,7 @@ android {
 }
 
 apply from: "dependencies.gradle"
+apply from: "publish.gradle"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
