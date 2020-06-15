@@ -22,6 +22,17 @@ dependencies {
 
 1. Apply the mutating function
 
+**Java** ([Java 8+](https://developer.android.com/studio/write/java8-support) required)
+
+```java
+MutableDataSource.Factory<Key, Value> mutableDataSourceFactory = DataSourceTransformation.mutateByPage(dataSourceFactory, original -> {
+	//Mutate
+});
+```
+
+
+**Kotlin**
+
 ```kotlin
 val mutableDataSourceFactory = dataSourceFactory.mutateByPage { original ->
   //Mutate
