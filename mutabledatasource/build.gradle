@@ -1,6 +1,11 @@
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'dev.sarquella.mavencentral-publisher' version '1.0.0'
+}
+
+apply from: "dependencies.gradle"
 
 android {
     compileSdkVersion 29
@@ -10,7 +15,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
+        versionName "0.1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -23,9 +28,16 @@ android {
         }
     }
 
-}
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 
-apply from: "dependencies.gradle"
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+}
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -35,4 +47,29 @@ dependencies {
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
 
     testImplementation "junit:junit:$test_junit_version"
+}
+
+mavenCentralPublication {
+    groupId = 'dev.sarquella.mutabledatasource'
+    artifact = 'mutabledatasource'
+    version = '0.1.0'
+
+    description = 'A wrapper around Android Paging Library\'s DataSources to ' +
+            'allow the free mutation of their resulting items.'
+
+    repoUrl = 'https://github.com/Sarquella/MutableDataSource'
+    vcsUrl = 'https://github.com/Sarquella/MutableDataSource.git'
+
+    developer {
+        id = 'sarquella'
+        name = 'Adrià Sarquella Farrés'
+        email = 'adria@sarquella.dev'
+    }
+
+    license {
+        name = 'The Apache Software License, Version 2.0'
+        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    }
+
+    propertiesFile = 'maven-publish.properties'
 }

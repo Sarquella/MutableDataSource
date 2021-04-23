@@ -276,3 +276,6 @@ fabric.properties
 !/gradle/wrapper/gradle-wrapper.jar
 
 # End of https://www.gitignore.io/api/java,macos,gradle,kotlin,android,androidstudio
+
+# MavenCentral Publisher
+*.gpg
