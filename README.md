@@ -3,7 +3,7 @@
 A wrapper around Android [Paging Library](https://developer.android.com/topic/libraries/architecture/paging)'s DataSources to allow the free mutation of their resulting items.
 
 #### 100% Kotlin ❤️
-[![Download](https://api.bintray.com/packages/sarquella/MutableDataSource/dev.sarquella.mutabledatasource/images/download.svg) ](https://bintray.com/sarquella/MutableDataSource/dev.sarquella.mutabledatasource/_latestVersion) [![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16) [![License](https://img.shields.io/badge/license-Apache%202.0-lightgrey.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Maven Central](https://img.shields.io/maven-central/v/dev.sarquella.mutabledatasource/mutabledatasource?color=blue)](https://search.maven.org/artifact/dev.sarquella.mutabledatasource/mutabledatasource) [![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16) [![License](https://img.shields.io/badge/license-Apache%202.0-lightgrey.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ### Follow
 <a href='https://ko-fi.com/S6S8RENM' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
