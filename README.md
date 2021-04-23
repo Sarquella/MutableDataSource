@@ -14,7 +14,7 @@ A wrapper around Android [Paging Library](https://developer.android.com/topic/li
 ```groovy
 dependencies {
     //...
-    implementation 'dev.sarquella.mutabledatasource:mutabledatasource:0.1.0'
+    implementation 'dev.sarquella.mutabledatasource:mutabledatasource:0.1.1'
 }
 ```
 
